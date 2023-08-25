@@ -9,13 +9,8 @@ import { ApiService } from './api.service';
 export class FantaApiService {
   constructor(private http: HttpClient, private apiService: ApiService) {}
 
-  players(): void {
-    let params = {
-      team: Constants.SERIE_A_ID,
-      season: Constants.YEAR_CURRENT_SEASON,
-    };
-    
-    this.apiService.get('/players', params).subscribe((res) => {
+  players(team: number, season: number): void {
+    this.apiService.get('/players', { team, season }).subscribe((res) => {
       console.log(res);
     });
   }

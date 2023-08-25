@@ -8,11 +8,6 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class ApiService {
-  headers = {
-    'X-RapidAPI-Key': '75feb123ddmshd808329cbfb1fb1p123e11jsn68636127a384',
-    'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com',
-  };
-
   constructor(private http: HttpClient) {}
 
   public get<T>(path: string, routerParams?: Params): Observable<T> {
@@ -23,7 +18,10 @@ export class ApiService {
     console.log(queryParams);
     return this.http.get<T>(this.path(path), {
       params: queryParams,
-      headers: this.headers,
+      headers: {
+        'X-RapidAPI-Key': environment.rapid_api_key,
+        'X-RapidAPI-Host': environment.rapid_api_host,
+      },
     });
   }
 
