@@ -9,6 +9,7 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 @NgModule({
   declarations: [AppComponent, SidenavComponent],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule],
+  exports: [SidenavComponent],
   providers: [],
   bootstrap: [AppComponent],
 })
