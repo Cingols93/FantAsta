@@ -29,9 +29,9 @@ export class AppComponent {
   }
 
   constructor(private fantaApiService: FantaApiService) {
-    this.fantaApiService.players(
-      Constants.SERIE_A_ID,
-      Constants.YEAR_CURRENT_SEASON
-    );
+    // this.fantaApiService.players(
+    //   Constants.SERIE_A_ID,
+    //   Constants.YEAR_CURRENT_SEASON
+    // );
   }
 }
