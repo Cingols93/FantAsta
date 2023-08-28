@@ -9,12 +9,13 @@ interface SideNavToggle {
 
 @Component({
   selector: 'app-root',
-  template: `<app-sidenav
-      (onToggleSideNav)="onToggleSideNav($event)"
-    ></app-sidenav>
+  template: `
+    <app-header></app-header>
+    <app-sidenav (onToggleSideNav)="onToggleSideNav($event)"></app-sidenav>
     <app-body>
       [collapsed]="isSideNavCollapsed" [screenWidth]="screenWidth"
-    </app-body> `,
+    </app-body>
+  `,
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
