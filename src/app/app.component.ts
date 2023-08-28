@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Constants } from 'src/common/service-constants';
-import { FantaApiService } from './services/fanta-api.service';
+import { Constants } from 'src/app/core/utils/common-constants';
+import { FantaApiService } from './core/services/fanta-api.service';
 
 interface SideNavToggle {
   screenWidth: number;
@@ -29,10 +29,12 @@ export class AppComponent {
     this.isSideNavCollapsed = data.collapsed;
   }
 
-  constructor(private fantaApiService: FantaApiService) {
-    // this.fantaApiService.players(
-    //   Constants.SERIE_A_ID,
-    //   Constants.YEAR_CURRENT_SEASON
-    // );
-  }
+  constructor(){}
+
+  // constructor(private fantaApiService: FantaApiService) {
+  //   this.fantaApiService.players(
+  //     Constants.SERIE_A_ID,
+  //     Constants.YEAR_CURRENT_SEASON
+  //   );
+  // }
 }
