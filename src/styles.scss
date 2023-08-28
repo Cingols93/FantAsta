@@ -8,7 +8,7 @@
 
 body {
   position: relative;
-  font-family: "Fira Sans Condensed", sans-serif;
+  font-family: "Fira Sans Condensed", sans-serif !important;
 }
 
 .card {
@@ -29,4 +29,10 @@ body {
   .card-body {
     padding: 1rem 1.5rem;
   }
+}
+.bg-principale {
+  background: #ea3c12 !important;
+}
+.color-principale {
+  color: #ea9937 !important;
 }
