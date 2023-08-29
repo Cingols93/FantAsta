@@ -1,26 +1,13 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 
-// interface UserData {
-//   name: string;
-//   surname: string;
-//   username: string;
-//   email: string;
-//   password: string;
-// }
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
   styleUrls: ['./registration.component.scss'],
 })
 export class RegistrationComponent {
-  // userData: UserData = {
-  //   name: '',
-  //   surname: '',
-  //   username: '',
-  //   email: '',
-  //   password: '',
-  // };
+  mailIsValid: boolean = false;
   profileForm = new FormGroup({
     firstName: new FormControl(''),
     lastName: new FormControl(''),
@@ -29,6 +16,12 @@ export class RegistrationComponent {
     password: new FormControl(''),
   });
   onSubmit() {
-    console.log(this.profileForm.value);
+    if (!this.profileForm.value.email?.includes('@')) {
+      this.mailIsValid = true;
+    } else {
+      false;
+    }
+
+    console.log(this.profileForm);
   }
 }

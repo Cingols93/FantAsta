@@ -32,12 +32,15 @@
   <div class="form-group mt-3">
     <label for="email">Mail </label>
     <input
-      class="form-control"
+      class="form-control mb-2"
       id="email"
       type="email"
       formControlName="email"
       required
     />
+    <span class="text-danger" *ngIf="mailIsValid"
+      >Mail non valida inserire '@'</span
+    >
   </div>
   <div class="form-group mt-3">
     <label for="password">Password </label>
