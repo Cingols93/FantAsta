@@ -1,1 +1,61 @@
-<p>registration works!</p>
+<div class="container mt-5">
+  <h2>Registrazione</h2>
+  <form (ngSubmit)="submitForm()">
+    <div class="form-group mt-3">
+      <label for="username">Nome</label>
+      <input
+        [(ngModel)]="userData.name"
+        type="text"
+        class="form-control"
+        id="name"
+        name="name"
+        required
+      />
+    </div>
+    <div class="form-group mt-3">
+      <label for="username">Cognome</label>
+      <input
+        [(ngModel)]="userData.surname"
+        type="text"
+        class="form-control"
+        id="name"
+        name="name"
+        required
+      />
+    </div>
+    <div class="form-group mt-3">
+      <label for="username">Username</label>
+      <input
+        [(ngModel)]="userData.username"
+        type="text"
+        class="form-control"
+        id="username"
+        name="username"
+        required
+      />
+    </div>
+    <div class="form-group mt-3">
+      <label for="email">Email</label>
+      <input
+        [(ngModel)]="userData.email"
+        type="email"
+        class="form-control"
+        id="email"
+        name="email"
+        required
+      />
+    </div>
+    <div class="form-group mt-3">
+      <label for="password">Password</label>
+      <input
+        [(ngModel)]="userData.password"
+        type="password"
+        class="form-control"
+        id="password"
+        name="password"
+        required
+      />
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Registrati</button>
+  </form>
+</div>

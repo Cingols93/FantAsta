@@ -14,6 +14,7 @@ import { CoreModule } from './core/core.module';
   declarations: [AppComponent, DashboardComponent, BodyComponent],
   imports: [
     BrowserModule,
+
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
