@@ -6,6 +6,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { RouterModule } from '@angular/router';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { CoreRoutingModule } from './core-routng.modules';
 @NgModule({
   declarations: [
@@ -14,7 +15,13 @@ import { CoreRoutingModule } from './core-routng.modules';
     SidenavComponent,
     RegistrationComponent,
   ],
-  imports: [CommonModule, RouterModule, FormsModule, CoreRoutingModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    FormsModule,
+    CoreRoutingModule,
+    ReactiveFormsModule,
+  ],
   exports: [HeaderComponent, LoginComponent, SidenavComponent],
 })
 export class CoreModule {}
