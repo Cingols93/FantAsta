@@ -7,19 +7,28 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./registration.component.scss'],
 })
 export class RegistrationComponent {
-  mailIsValid: boolean = false;
+  mailIsValid: boolean = true;
+  passwordsIsValid: boolean = true;
   profileForm = new FormGroup({
     firstName: new FormControl(''),
     lastName: new FormControl(''),
     username: new FormControl(''),
     email: new FormControl(''),
     password: new FormControl(''),
+    confirmPassword: new FormControl(''),
   });
   onSubmit() {
     if (!this.profileForm.value.email?.includes('@')) {
-      this.mailIsValid = true;
+      this.mailIsValid = false;
     } else {
-      false;
+      true;
+    }
+    if (
+      this.profileForm.value.password !== this.profileForm.value.confirmPassword
+    ) {
+      this.passwordsIsValid = false;
+    } else {
+      true;
     }
 
     console.log(this.profileForm);
