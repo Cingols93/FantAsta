@@ -3,12 +3,21 @@
     <div class="col-md-6 offset-md-3">
       <form [formGroup]="form" (ngSubmit)="submit()">
         <div class="mb-3">
-          <label for="nome" class="form-label">Nome</label>
+          <label for="name" class="form-label">Nome</label>
           <input
             type="text"
-            id="nome"
+            id="name"
             class="form-control"
-            formControlName="nome"
+            formControlName="name"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="surname" class="form-label">Cognome</label>
+          <input
+            type="text"
+            id="surname"
+            class="form-control"
+            formControlName="surname"
           />
         </div>
         <div class="mb-3">
