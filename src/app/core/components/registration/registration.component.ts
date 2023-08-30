@@ -19,11 +19,10 @@ export class RegistrationComponent {
 
   ngOnInit(): void {}
 
-  enviarFormulario() {
+  submit() {
     console.log(this.form, 'non valido');
     if (this.form.valid) {
       console.log(this.form, 'valido');
-      // Aquí puedes enviar los datos del formulario a través de un servicio o realizar otras acciones.
     }
   }
 }
