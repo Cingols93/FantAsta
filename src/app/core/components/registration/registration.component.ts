@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-registration',
@@ -7,30 +7,23 @@ import { FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./registration.component.scss'],
 })
 export class RegistrationComponent {
-  mailIsValid: boolean = true;
-  passwordsIsValid: boolean = true;
-  profileForm = new FormGroup({
-    firstName: new FormControl(''),
-    lastName: new FormControl(''),
-    username: new FormControl(''),
-    email: new FormControl(''),
-    password: new FormControl(''),
-    confirmPassword: new FormControl(''),
-  });
-  onSubmit() {
-    if (!this.profileForm.value.email?.includes('@')) {
-      this.mailIsValid = false;
-    } else {
-      true;
-    }
-    if (
-      this.profileForm.value.password !== this.profileForm.value.confirmPassword
-    ) {
-      this.passwordsIsValid = false;
-    } else {
-      true;
-    }
+  form: FormGroup;
 
-    console.log(this.profileForm);
+  constructor(private fb: FormBuilder) {
+    this.form = this.fb.group({
+      nome: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required],
+    });
+  }
+
+  ngOnInit(): void {}
+
+  enviarFormulario() {
+    console.log(this.form, 'non valido');
+    if (this.form.valid) {
+      console.log(this.form, 'valido');
+      // Aquí puedes enviar los datos del formulario a través de un servicio o realizar otras acciones.
+    }
   }
 }
