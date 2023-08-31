@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
 import { RegistrationModel } from '../../models/RegistrationModel';
 import { AuthService } from '../../services/auth.service';
+
 
 @Component({
   selector: 'app-registration',
