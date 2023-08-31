@@ -6,22 +6,20 @@ import { AppComponent } from './app.component';
 import { BodyComponent } from './features/body/body.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardComponent } from './features/dashboard/dashboard.component';
+
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    DashboardComponent,
-    BodyComponent
-  ],
+  declarations: [AppComponent, DashboardComponent, BodyComponent],
   imports: [
     BrowserModule,
+
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     CoreModule,
-    SharedModule
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

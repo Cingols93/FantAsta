@@ -14,7 +14,12 @@
       <button class="btn color-principale bg-principale me-2 fw-bolder">
         Login
       </button>
-      <button class="btn color-principale bg-principale fw-bolder">
+      <button
+        class="btn color-principale bg-principale fw-bolder"
+        [routerLink]="['register']"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
         Registrati
       </button>
     </div>
