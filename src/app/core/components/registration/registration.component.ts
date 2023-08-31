@@ -7,6 +7,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./registration.component.scss'],
 })
 export class RegistrationComponent {
+  showPassword: boolean = false;
   form: FormGroup;
 
   constructor(private fb: FormBuilder) {
@@ -22,6 +23,8 @@ export class RegistrationComponent {
 
   submit() {
     console.log(this.form, 'non valido');
+    console.log(this.form.get('email'));
+
     if (this.form.valid) {
       console.log(this.form, 'valido');
     }
