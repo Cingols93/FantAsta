@@ -10,6 +10,7 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./registration.component.scss'],
 })
 export class RegistrationComponent {
+  showPassword: boolean = false;
   form: FormGroup;
 
   constructor(private fb: FormBuilder, private authService: AuthService) {
