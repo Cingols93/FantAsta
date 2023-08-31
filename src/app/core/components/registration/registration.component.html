@@ -57,7 +57,7 @@
           </div>
         </div>
         <label for="password" class="form-label">Password</label>
-        <div class="mb-3 input-group">
+        <div class="mb-2 input-group">
           <input
             type="{{ showPassword ? 'text' : 'password' }}"
             id="password"
@@ -80,12 +80,14 @@
               form.get('password')?.invalid && form.get('password')?.touched
             "
             class="text-danger mt-1"
-          >
-            <div *ngIf="form.get('password')?.hasError('required')">
-              La password è obbligatoria
-            </div>
-          </div>
+          ></div>
         </div>
+        <span
+          class="text-danger mb-2 d-block"
+          *ngIf="form.get('password')?.hasError('required')"
+        >
+          La password è obbligatoria
+        </span>
         <button [disabled]="form.invalid" type="submit" class="btn btn-primary">
           Registrati
         </button>
