@@ -9,7 +9,11 @@ import { environment } from 'src/environments/environment';
 })
 export class ApiService {
   constructor(private http: HttpClient) {}
-  public get<T>(path: string, routerParams?: Params): Observable<T> {
+  public get<T>(
+    path: string,
+    routerParams?: Params,
+    headers?: any
+  ): Observable<T> {
     let queryParams: Params = {};
     if (routerParams) {
       queryParams = this.setParameter(routerParams);
@@ -17,12 +21,26 @@ export class ApiService {
     console.log(queryParams);
     return this.http.get<T>(this.path(path), {
       params: queryParams,
-      headers: {
-        'X-RapidAPI-Key': environment.rapid_api_key,
-        'X-RapidAPI-Host': environment.rapid_api_host,
-      },
+      headers: headers,
     });
   }
+
+  public post<T>(
+    path: string,
+    routerParams?: Params,
+    headers?: any
+  ): Observable<T> {
+    let queryParams: Params = {};
+    if (routerParams) {
+      queryParams = this.setParameter(routerParams);
+    }
+    console.log(queryParams);
+    return this.http.post<T>(this.path(path), {
+      params: queryParams,
+      headers: headers,
+    });
+  }
+
   private setParameter(routerParams: Params): HttpParams {
     let queryParams = new HttpParams();
     for (const key in routerParams) {

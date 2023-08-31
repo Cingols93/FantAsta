@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
+import { RegistrationModel } from '../../models/RegistrationModel';
+import { AuthService } from '../../services/auth.service';
+
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -9,7 +12,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class RegistrationComponent {
   form: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private authService: AuthService) {
     this.form = this.fb.group({
       name: ['', Validators.required],
       surname: ['', Validators.required],
@@ -20,10 +23,14 @@ export class RegistrationComponent {
 
   ngOnInit(): void {}
 
-  submit() {
-    console.log(this.form, 'non valido');
+  submit(form: RegistrationModel) {
+    console.log('not valid');
+
     if (this.form.valid) {
-      console.log(this.form, 'valido');
+      this.authService.signUp(form).subscribe((res) => {
+        console.log('QUI', res);
+      });
+      console.log(this.form.value, 'valid');
     }
   }
 }
