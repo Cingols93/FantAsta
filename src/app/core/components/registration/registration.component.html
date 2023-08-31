@@ -71,7 +71,7 @@
           >
             <i
               [ngClass]="
-                showPassword ? 'fa-solid fa-eye' : 'fa-solid eye-slash'
+                showPassword ? 'fa fa-solid fa-eye' : 'fa fa-solid fa-eye-slash'
               "
             ></i>
           </button>
@@ -86,7 +86,9 @@
             </div>
           </div>
         </div>
-        <button type="submit" class="btn btn-primary">Registrati</button>
+        <button [disabled]="form.invalid" type="submit" class="btn btn-primary">
+          Registrati
+        </button>
       </form>
     </div>
   </div>
