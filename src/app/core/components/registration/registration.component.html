@@ -10,6 +10,14 @@
             class="form-control"
             formControlName="name"
           />
+          <div
+            *ngIf="form.get('name')?.invalid && form.get('name')?.touched"
+            class="text-danger mt-1"
+          >
+            <div *ngIf="form.get('name')?.hasError('required')">
+              Il nome è obbligatorio
+            </div>
+          </div>
         </div>
         <div class="mb-3">
           <label for="surname" class="form-label">Cognome</label>
@@ -19,6 +27,14 @@
             class="form-control"
             formControlName="surname"
           />
+          <div
+            *ngIf="form.get('surname')?.invalid && form.get('surname')?.touched"
+            class="text-danger mt-1"
+          >
+            <div *ngIf="form.get('surname')?.hasError('required')">
+              Il cognome è obbligatorio
+            </div>
+          </div>
         </div>
         <div class="mb-3">
           <label for="email" class="form-label">Email</label>
@@ -28,15 +44,47 @@
             class="form-control"
             formControlName="email"
           />
+          <div
+            *ngIf="form.get('email')?.invalid && form.get('email')?.touched"
+            class="text-danger mt-1"
+          >
+            <div *ngIf="form.get('email')?.hasError('required')">
+              La mail è richiesta
+            </div>
+            <div *ngIf="form.get('email')?.hasError('email')">
+              Inserire una mail valida
+            </div>
+          </div>
         </div>
-        <div class="mb-3">
-          <label for="password" class="form-label">Password</label>
+        <label for="password" class="form-label">Password</label>
+        <div class="mb-3 input-group">
           <input
-            type="password"
+            type="{{ showPassword ? 'text' : 'password' }}"
             id="password"
             class="form-control"
             formControlName="password"
           />
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            (click)="showPassword = !showPassword"
+          >
+            <i
+              [ngClass]="
+                showPassword ? 'fa-solid fa-eye' : 'fa-solid eye-slash'
+              "
+            ></i>
+          </button>
+          <div
+            *ngIf="
+              form.get('password')?.invalid && form.get('password')?.touched
+            "
+            class="text-danger mt-1"
+          >
+            <div *ngIf="form.get('password')?.hasError('required')">
+              La password è obbligatoria
+            </div>
+          </div>
         </div>
         <button type="submit" class="btn btn-primary">Registrati</button>
       </form>
